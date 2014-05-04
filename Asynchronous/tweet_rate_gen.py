@@ -3,6 +3,7 @@ $ siege http://localhost:8000/?q=pants -c10 -t10s
 使用python的yield关键字以及tornado.gen.Task对象的一个实例，将我们想要的调用和传给该调用函数的参数传递给那个函数。
 这里，yield的使用返回程序对Tornado的控制，允许在HTTP请求进行中执行其他任务，当HTTP请求完成时，RequestHandler方法在其停止的地方恢复，即所有请求相关的逻辑位于同一个位置，而HTTP请求依然是异步执行的。
 
+
 '''
 import tornado.httpserver
 import tornado.ioloop
