@@ -1,0 +1,50 @@
+Ubuntu系统安装Mongodb步骤：
+
+安装10Gen的GPG key：
+$ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
+
+编辑source.list文件添加10gen源：
+$ sudo vi /etc/apt/sources.list
+添加：
+deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen
+
+安装Mongodb：
+sudo apt-get update
+sudo apt-get install mongodb-10gen
+
+为Mongodb的运行目录添加权限：
+$ sudo chown mongodb /var/lib/mongodb
+这样Mongodb就安装好了。
+
+启动和关掉Mongodb可以运行：
+$ sudo service mongodb stop
+$ sudo service mongodb start
+
+配置信息保存在/etc/mongodb.conf
+如果想改变端口可以修改
+port = 27017
+
+默认情况下，mongodb可以接受任何连接，不需要用用户名密码。
+
+生产环境我们有两种选择:
+
+1.建立用户名密码
+
+$ mongo
+> use admin
+switched to db admin
+> db.addUser("username","password")
+建立好用户名以后，需要开启连接时用用户名登录
+在/etc/mongodb.conf中添加
+auth = true
+
+2.只接受本地连接
+
+在/etc/mongodb.conf中添加：
+bind_ip = 127.0.0.1
+这样只有来自本地的连接才能连到Mongodb
+
+
+
+
+
