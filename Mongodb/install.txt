@@ -1,3 +1,5 @@
+http://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/
+
 Ubuntu系统安装Mongodb步骤：
 
 安装10Gen的GPG key：
