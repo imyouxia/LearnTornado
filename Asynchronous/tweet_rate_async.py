@@ -13,6 +13,7 @@ from tornado.options import define,options
 define("port",default=8000,help="run on the given port",type=int)
 
 class IndexHandler(tornado.web.RequestHandler):
+	
 	@tornado.web.asynchronous
 	def get(self):
 		query = self.get_argument('q')
