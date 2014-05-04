@@ -46,7 +46,8 @@ auth = true
 bind_ip = 127.0.0.1
 这样只有来自本地的连接才能连到Mongodb
 
-
+安装pymongo：
+$ pip install pymongo
 
 
 
